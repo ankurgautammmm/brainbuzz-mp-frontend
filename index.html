@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BRAINBUZZ — Starfield SPA</title>
+
+  <!-- Tailwind + Icons + Lottie + Chart -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  
+<video id="bgVideo" autoplay muted loop playsinline>
+  <source src="assets/space.mp4" type="video/mp4">
+</video>
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <div class="nav-left">
+      <img id="logoImg" src="assets/logo.jpg" alt="Brainbuzz Logo"class="logo-img" />
+      <button id="logoBtn" class="logo-text">
+        <div class="brand-font text-xl leading-tight">BRAINBUZZ</div>
+        <div class="text-xs text-gray-300">Learn. Play. Improve.</div>
+      </button>
+    </div>
+
+    <nav class="nav-center">
+      <button class="nav-btn" data-target="features">Features</button>
+      <button class="nav-btn" data-target="about">About</button>
+      <button class="nav-btn" data-target="contact">Contact</button>
+    </nav>
+
+    <div class="nav-right">
+      <button id="loginNav" class="nav-btn">Login</button>
+      <button id="signupNav" class="nav-btn">Sign Up</button>
+      <button id="avatarNav" class="hidden nav-btn"><div id="avatarBubble" class="avatar"></div></button>
+      <button id="logoutBtn" class="hidden nav-btn">Logout</button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main-container">
+
+  <!-- HOME -->
+  <section id="home" class="section show">
+    <div class="glass">
+      <div class="home-grid">
+        <div>
+          <h1 class="brand-font hero-title">Fuel Your Mind. Challenge Your Knowledge with <span class="text-gray-200">BRAINBUZZ.</span></h1>
+          <p class="text-gray-300 mt-3">Adaptive quizzes. Animated UI. Real-time scoring.</p>
+
+          <div class="home-btns">
+            <button id="startCTA" class="btn-primary">Start Quiz</button>
+            <button class="btn-ghost toFeatures">Explore Features</button>
+          </div>
+        </div>
+      <div class="flex justify-center md:justify-end z-10">
+        <lottie-player
+          src="https://assets8.lottiefiles.com/packages/lf20_jcikwtux.json"
+          speed="1"
+          style="width:320px;height:320px"
+          loop
+          autoplay>
+        </lottie-player>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+ <section id="features" class="hidden px-4 py-8">
+        <div class="glass-box glow-border animate-fadeIn">
+          <h3 class="text-2xl font-bold brand-font mb-6">Features</h3>
+          <div id="featureGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="zap" class="w-6 h-6 icon"></i><h4 class="font-semibold">Fast Quizzes</h4></div><p class="text-gray-300">Short 10-question sessions to build streaks quickly.</p></div>
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="award" class="w-6 h-6 icon"></i><h4 class="font-semibold">Gamified Experience</h4></div><p class="text-gray-300">Points, streaks, and badges to keep you motivated.</p></div>
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="bar-chart-3" class="w-6 h-6 icon"></i><h4 class="font-semibold">Performance Dashboard</h4></div><p class="text-gray-300">Track progress with charts and attempts history.</p></div>
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="moon" class="w-6 h-6 icon"></i><h4 class="font-semibold"></h4></div><p class="text-gray-300">Designed for late-night practice.</p></div>
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="message-square" class="w-6 h-6 icon"></i><h4 class="font-semibold">AI Explanations (Planned)</h4></div><p class="text-gray-300">Short explanations after each question.</p></div>
+            <div class="feature-card glow-border p-4"><div class="flex items-center gap-3 mb-2"><i data-lucide="book-open-text" class="w-6 h-6 icon"></i><h4 class="font-semibold">Multi-Subject Support</h4></div><p class="text-gray-300">Science, Mathematics, English, History (10 Qs each).</p></div>
+          </div>
+        </div>
+      </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="hidden py-8">
+        <div class="glass-box md:flex md:items-center md:gap-6">
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-bold brand-font mb-2">About BRAINBUZZ</h3>
+            <p class="text-gray-300 mb-2">Brainbuzz helps students and lifelong learners practice quicker and retain more with short adaptive quizzes and clear feedback.</p>
+            <p class="text-gray-400">Our goal: make studying daily feel satisfying and measurable.</p>
+          </div>
+          <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
+            <div class="lottie-wrap">
+              <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ydo1amjm.json" background="transparent" speed="1" style="width:300px;height:300px;" loop autoplay></lottie-player>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <!-- CONTACT -->
+   <section id="contact" class="hidden px-4 py-8">
+        <div class="glass-box glow-border max-w-md mx-auto animate-fadeIn">
+          <h3 class="text-2xl font-bold brand-font mb-4">Contact</h3>
+          <form id="contactForm" class="space-y-3">
+            <div><label class="text-gray-300 block mb-1">Name</label><input id="contactName" class="w-full p-3 rounded bg-black border border-gray-700 text-white" required></div>
+            <div><label class="text-gray-300 block mb-1">Email</label><input id="contactEmail" type="email" class="w-full p-3 rounded bg-black border border-gray-700 text-white" required></div>
+            <div><label class="text-gray-300 block mb-1">Message</label><textarea id="contactMsg" rows="4" class="w-full p-3 rounded bg-black border border-gray-700 text-white"></textarea></div>
+            <div class="flex gap-2"><button type="submit" class="flex-1 px-4 py-2 rounded-full" style="background:linear-gradient(90deg,var(--neon1),var(--neon2)); color:#000;">Send</button><button type="button" id="contactCancel" class="px-4 py-2 rounded-full border border-gray-700">Cancel</button></div>
+          </form>
+        </div>
+      </section>
+ <section id="subjectChooser" class="hidden px-4 py-8">
+  <div class="glass-box glow-border animate-fadeIn">
+    <div class="subject-grid">
+      <!-- Science -->
+      <div class="subject-card glow-border" data-subject="Science" id="cardScience">
+        <div class="icon-glow"><i data-lucide="atom" class="w-7 h-7"></i></div>
+        <lottie-player class="mini-lottie" id="lottieScience" background="transparent" speed="1" loop autoplay
+          src="https://assets10.lottiefiles.com/packages/lf20_ygiuluqn.json"></lottie-player>
+        <div class="subject-title">Science</div>
+        <div class="subject-sub">Physics, Chemistry & Biology</div>
+      </div>
+
+      <!-- Mathematics -->
+      <div class="subject-card glow-border" data-subject="Mathematics" id="cardMath">
+        <div class="icon-glow"><i data-lucide="hash" class="w-7 h-7"></i></div>
+        <lottie-player id="lottieMath" class="mini-lottie" background="transparent" speed="1" loop autoplay
+          src="https://assets10.lottiefiles.com/packages/lf20_pwohahvd.json"></lottie-player>
+        <div class="subject-title">Mathematics</div>
+        <div class="subject-sub">Algebra, Geometry & Arithmetic</div>
+      </div>
+
+      <!-- English -->
+      <div class="subject-card glow-border" data-subject="English" id="cardEnglish">
+        <div class="icon-glow"><i data-lucide="file-text" class="w-7 h-7"></i></div>
+        <lottie-player class="mini-lottie" id="lottieEnglish" background="transparent" speed="1" loop autoplay
+          src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json"></lottie-player>
+        <div class="subject-title">English</div>
+        <div class="subject-sub">Grammar, Vocab & Reading</div>
+      </div>
+
+      <!-- History -->
+      <div class="subject-card glow-border" data-subject="History" id="cardHistory">
+        <div class="icon-glow"><i data-lucide="book-open" class="w-7 h-7"></i></div>
+        <lottie-player id="lottieHistory" class="mini-lottie" background="transparent" speed="1" loop autoplay
+          src="https://assets5.lottiefiles.com/packages/lf20_kdx6cani.json"></lottie-player>
+        <div class="subject-title">History</div>
+        <div class="subject-sub">World & Civilizations</div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- LOGIN -->
+  <section id="loginPage" class="hidden py-8">
+        <div class="max-w-md mx-auto glass-box">
+          <h3 class="text-xl font-bold mb-4 brand-font">Login</h3>
+          <form id="loginForm" class="space-y-4">
+            <div><label class="text-sm text-gray-300">Username</label><input id="username" class="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-white" required></div>
+            <div><label class="text-sm text-gray-300">Password</label><input id="password" type="password" class="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-white" required></div>
+            <div id="loginError" class="text-sm text-red-400 hidden"></div>
+            <div class="flex justify-between"><button type="submit" class="px-4 py-2 rounded-full btn-primary">Login</button><button type="button" id="goToSignup" class="px-4 py-2 rounded-full border border-gray-700">Sign Up</button></div>
+          </form>
+        </div>
+      </section>
+  <!-- SIGNUP -->
+  <section id="signupPage" class="section hidden glass-box">
+<h3 class="brand-font">Sign Up</h3>
+<form id="signupForm" class="space-y-4" novalidate>
+<div>
+<label for="signupUsername">Username</label>
+<input id="signupUsername" name="username" type="text" autocomplete="username" placeholder="Choose a username" required />
+<div id="usernameHint" class="muted small mt-1">Use letters and numbers. No spaces.</div>
+</div>
+
+
+<div>
+<label for="signupPassword">Password</label>
+<div class="row mt-1">
+<input id="signupPassword" name="password" type="password" placeholder="Create password" required />
+<button type="button" id="togglePwd" class="eye" title="Show / hide">👁</button>
+</div>
+
+
+<div class="meter mt-1"><i id="pwdMeter"></i></div>
+<div id="pwdStrength" class="meter-label">Password strength: <span id="pwdStrengthText">—</span></div>
+</div>
+
+
+<div>
+<label for="signupConfirmPassword">Confirm Password</label>
+<input id="signupConfirmPassword" name="confirm" type="password" placeholder="Repeat password" required />
+</div>
+
+
+<div id="signupError" class="error hidden" role="alert"></div>
+
+
+<div class="flex justify-between">
+<button type="submit" id="signupBtn" class="btn-primary">Sign Up</button>
+<button type="button" id="backToLogin" class="btn-ghost">Back to Login</button>
+</div>
+
+
+<div class="muted small mt-1">By creating an account you agree to our <a href="#">Terms</a>.</div>
+</form>
+</section>
+  <!-- PROFILE -->
+  <section id="profile" class="section hidden">
+    <div class="glass max-w-3xl">
+      <h2 class="sect-title">Your Profile</h2>
+      <div class="profile-top">
+        <div id="bigAvatar" class="avatar-big"></div>
+        <div class="text-gray-300 text-sm">Cartoon avatar generated automatically.</div>
+      </div>
+
+      <form id="profileForm" class="profile-grid">
+        <div><label>Full Name</label><input id="pName"></div>
+        <div><label>Email</label><input id="pEmail"></div>
+        <div><label>Phone</label><input id="pPhone"></div>
+        <div><label>Class/Year</label><input id="pClass"></div>
+        <div><label>Date of Birth</label><input id="pDob" type="date"></div>
+        <div><label>Age</label><input id="pAge" type="number"></div>
+
+        <div class="action-right">
+          <button type="reset" class="btn-ghost">Reset</button>
+          <button class="btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="section hidden">
+      <div class="glass-box max-w-2xl mx-auto animate-fadeIn">
+        <div class="flex items-center justify-between mb-2"><div class="text-sm text-white/80">Q <span id="qIndex">1</span> / <span id="qTotal">10</span></div><div class="text-sm text-white/80">⏳ <span id="timer">30</span>s</div></div>
+        <div class="w-full mb-3 bg-white/10 rounded-full overflow-hidden"><div id="timerBar" style="width:100%;height:10px;background:var(--blue)"></div></div>
+        <div id="qCard" class="mb-3"><h3 id="questionText" class="font-semibold text-white">Question text</h3></div>
+        <div id="optionsContainer" class="space-y-2 mb-3"></div>
+        <div class="flex items-center justify-between">
+          <div id="resultText" class="text-white/85">✔ 0 | ✘ 0</div>
+          <div><button id="skipBtn" class="px-3 py-1 rounded border border-white/30 bg-black/25">Skip</button>
+          <button id="nextBtn" class="ml-2 px-3 py-1 rounded border border-white/30 bg-black/25">Next</button>
+        </div>
+      <div id="explainBox" class="explain hidden">
+        <div id="explainText"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="section hidden">
+    <div class="glass">
+      <div class="dash-header">
+        <h2 class="sect-title">Performance Dashboard</h2>
+        <button id="againBtn" class="btn-primary">New Quiz</button>
+      </div>
+
+      <div class="dash-cards">
+        <div class="dash-card"><div>Latest Score</div><div id="latestScore" class="dash-num">0%</div></div>
+        <div class="dash-card"><div>Average Accuracy</div><div id="avgScore" class="dash-num">0%</div></div>
+        <div class="dash-card"><div>Quizzes Played</div><div id="quizzesPlayed" class="dash-num">0</div></div>
+        <div class="dash-card"><div>Best Score</div><div id="bestScore" class="dash-num">0%</div></div>
+      </div>
+
+      <canvas id="scoreLineChart" height="120"></canvas>
+
+      <div class="recent-box">
+        <h4>Recent Attempts</h4>
+        <div id="attemptsList" class="recent-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section id="leaderboard" class="section hidden">
+    <div class="glass max-w-3xl">
+      <h2 class="sect-title">Leaderboard</h2>
+
+      <div id="youRank" class="you-rank hidden"></div>
+      <div id="lbList" class="leaderboard"></div>
+      <div id="lbEmpty" class="text-gray-400 hidden">No entries yet.</div>
+
+      <div class="lb-actions">
+        <button id="toDashboard" class="btn-ghost">Dashboard</button>
+        <button id="toSubjects" class="btn-primary">New Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHTS -->
+  <section id="rights" class="section hidden">
+    <div class="glass max-w-3xl">
+      <h2 class="sect-title">Rights & Copyright</h2>
+      <p>© <span id="yr"></span> Brainbuzz Media. Educational use only.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="flex justify-between items-center w-full px-6 text-sm text-gray-300">
+    <div>
+      © <span id="yr2"></span> Brainbuzz Media Ltd.
+    </div>
+
+    <div class="flex gap-4">
+      <a href="#" id="openPrivacy" class="hover:text-white">Privacy</a>
+      
+      <a href="#" id="|" class="hover:text-white">|</a>
+      <a href="#" id="openRights" class="hover:text-white">Rights</a>
+    </div>
+  </div>
+</footer>
+<!-- PRIVACY MODAL -->
+<div id="privacyModal">
+  <div class="modal-card">
+    <h3 class="modal-title">Privacy Policy</h3>
+    <p class="modal-text">We respect your privacy. We make it a priority to build your trust and confidence. In an effort to provide this level of trust around personal information and privacy on the web, we take the following approach to earning your trust.</p>
+    <div class="modal-actions">
+      <button id="closePrivacy" class="btn-ghost">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN JS -->
+<script src="app.js"></script>
+
+</body>
+</html>
