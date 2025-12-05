@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>BRAINBUZZ</title>
 
-  <!-- Tailwind + Icons + Lottie + Chart -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
 
-  <!-- Main CSS -->
+
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -22,7 +21,6 @@
 <video id="bgVideo" autoplay muted loop playsinline>
   <source src="assets/space.mp4" type="video/mp4">
 </video>
-<!-- HEADER -->
 <header>
   <div class="nav-wrap">
     <div class="nav-left">
@@ -47,10 +45,10 @@
   </div>
 </header>
 
-<!-- MAIN -->
+
 <main class="main-container">
 
-  <!-- HOME -->
+
   <section id="home" class="section show">
     <div class="glass">
       <div class="home-grid">
@@ -76,7 +74,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
  <section id="features" class="hidden px-4 py-8">
         <div class="glass-box glow-border animate-fadeIn">
           <h3 class="text-2xl font-bold brand-font mb-6">Features</h3>
@@ -91,7 +88,7 @@
         </div>
       </section>
 
-  <!-- ABOUT -->
+
   <section id="about" class="hidden py-8">
         <div class="glass-box md:flex md:items-center md:gap-6">
           <div class="md:w-1/2">
@@ -107,7 +104,7 @@
         </div>
       </section>
 
-  <!-- CONTACT -->
+
    <section id="contact" class="hidden px-4 py-8">
         <div class="glass-box glow-border max-w-md mx-auto animate-fadeIn">
           <h3 class="text-2xl font-bold brand-font mb-4">Contact</h3>
@@ -122,7 +119,7 @@
  <section id="subjectChooser" class="hidden px-4 py-8">
   <div class="glass-box glow-border animate-fadeIn">
     <div class="subject-grid">
-      <!-- Science -->
+
       <div class="subject-card glow-border" data-subject="Science" id="cardScience">
         <div class="icon-glow"><i data-lucide="atom" class="w-7 h-7"></i></div>
         <lottie-player class="mini-lottie" id="lottieScience" background="transparent" speed="1" loop autoplay
@@ -131,7 +128,7 @@
         <div class="subject-sub">Physics, Chemistry & Biology</div>
       </div>
 
-      <!-- Mathematics -->
+
       <div class="subject-card glow-border" data-subject="Mathematics" id="cardMath">
         <div class="icon-glow"><i data-lucide="hash" class="w-7 h-7"></i></div>
         <lottie-player id="lottieMath" class="mini-lottie" background="transparent" speed="1" loop autoplay
@@ -140,7 +137,7 @@
         <div class="subject-sub">Algebra, Geometry & Arithmetic</div>
       </div>
 
-      <!-- English -->
+
       <div class="subject-card glow-border" data-subject="English" id="cardEnglish">
         <div class="icon-glow"><i data-lucide="file-text" class="w-7 h-7"></i></div>
         <lottie-player class="mini-lottie" id="lottieEnglish" background="transparent" speed="1" loop autoplay
@@ -149,7 +146,7 @@
         <div class="subject-sub">Grammar, Vocab & Reading</div>
       </div>
 
-      <!-- History -->
+ 
       <div class="subject-card glow-border" data-subject="History" id="cardHistory">
         <div class="icon-glow"><i data-lucide="book-open" class="w-7 h-7"></i></div>
         <lottie-player id="lottieHistory" class="mini-lottie" background="transparent" speed="1" loop autoplay
@@ -160,7 +157,7 @@
     </div>
   </div>
 </section>
-  <!-- LOGIN -->
+
   <section id="loginPage" class="hidden py-8">
         <div class="max-w-md mx-auto glass-box">
           <h3 class="text-xl font-bold mb-4 brand-font">Login</h3>
@@ -172,7 +169,7 @@
           </form>
         </div>
       </section>
-  <!-- SIGNUP -->
+
   <section id="signupPage" class="section hidden glass-box">
 <h3 class="brand-font">Sign Up</h3>
 <form id="signupForm" class="space-y-4" novalidate>
@@ -214,7 +211,7 @@
 <div class="muted small mt-1">By creating an account you agree to our <a href="#">Terms</a>.</div>
 </form>
 </section>
-  <!-- PROFILE -->
+  
   <section id="profile" class="section hidden">
     <div class="glass max-w-3xl">
       <h2 class="sect-title">Your Profile</h2>
@@ -239,8 +236,7 @@
     </div>
   </section>
 
-  <!-- QUIZ -->
-  <section id="quiz" class="section hidden">
+    <section id="quiz" class="section hidden">
       <div class="glass-box max-w-2xl mx-auto animate-fadeIn">
         <div class="flex items-center justify-between mb-2"><div class="text-sm text-white/80">Q <span id="qIndex">1</span> / <span id="qTotal">10</span></div><div class="text-sm text-white/80">⏳ <span id="timer">30</span>s</div></div>
         <div class="w-full mb-3 bg-white/10 rounded-full overflow-hidden"><div id="timerBar" style="width:100%;height:10px;background:var(--blue)"></div></div>
@@ -257,7 +253,7 @@
     </div>
   </section>
 
-  <!-- DASHBOARD -->
+  
   <section id="dashboard" class="section hidden">
     <div class="glass">
       <div class="dash-header">
@@ -281,8 +277,7 @@
     </div>
   </section>
 
-  <!-- LEADERBOARD -->
-  <section id="leaderboard" class="section hidden">
+    <section id="leaderboard" class="section hidden">
     <div class="glass max-w-3xl">
       <h2 class="sect-title">Leaderboard</h2>
 
@@ -297,7 +292,7 @@
     </div>
   </section>
 
-  <!-- RIGHTS -->
+  
   <section id="rights" class="section hidden">
     <div class="glass max-w-3xl">
       <h2 class="sect-title">Rights & Copyright</h2>
@@ -321,7 +316,7 @@
     </div>
   </div>
 </footer>
-<!-- PRIVACY MODAL -->
+
 <div id="privacyModal">
   <div class="modal-card">
     <h3 class="modal-title">Privacy Policy</h3>
@@ -332,11 +327,12 @@
   </div>
 </div>
 
-<!-- MAIN JS -->
+
 <script src="app.js"></script>
 
 </body>
 </html>
+
 
 
 
