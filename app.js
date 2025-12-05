@@ -359,7 +359,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     // UI initial
     $("yr") && ($("yr").textContent = new Date().getFullYear());
     $("yr2") && ($("yr2").textContent = new Date().getFullYear());
-    $("logoImg") && ($("logoImg").src = "Assets/logo.jpg");
+    $("logoImg") && ($("logoImg").src = "assets/logo.jpg");
 
     refreshHeaderAuth();
     show("home");
@@ -367,5 +367,6 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
   });
 
 })(); // IIFE end
+
 
 
