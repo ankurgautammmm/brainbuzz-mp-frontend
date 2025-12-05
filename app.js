@@ -363,7 +363,8 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     loadLeaderboard();
   });
 
-})();  IIFE end
+})();  
+
 
 
 
