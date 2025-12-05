@@ -1,20 +1,19 @@
-// app.js - Final corrected BrainBuzz frontend
-// ===========================================
+
 const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
 
 (function () {
-  // --- Auth token helpers ---
+
   let AUTH_TOKEN = localStorage.getItem("bb_jwt") || null;
   function setToken(t) { AUTH_TOKEN = t; localStorage.setItem("bb_jwt", t); }
   function clearToken() { AUTH_TOKEN = null; localStorage.removeItem("bb_jwt"); }
   function authHeaders() { return AUTH_TOKEN ? { Authorization: `Bearer ${AUTH_TOKEN}` } : {}; }
   function isLoggedIn() { return !!AUTH_TOKEN; }
 
-  // --- DOM helpers ---
+ 
   const $ = id => document.getElementById(id);
   const $$ = sel => Array.from(document.querySelectorAll(sel));
 
-  // --- Avatar helpers ---
+   --- Avatar helpers ---
   function hashStr(s = "guest") {
     let h = 0;
     for (let i = 0; i < s.length; i++) h = ((h << 5) - h) + s.charCodeAt(i);
@@ -37,7 +36,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     el.style.backgroundSize = "cover";
   }
 
-  // --- Routing ---
+ 
   const sections = [
     "home","features","about","contact","subjectChooser","loginPage","signupPage",
     "profile","quiz","dashboard","leaderboard","rights"
@@ -46,13 +45,12 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     sections.forEach(s => { const el = $(s); if (el) el.classList.add("hidden"); });
     const t = $(id);
     if (t) t.classList.remove("hidden");
-    // nav active toggle
-    $$(".nav-btn").forEach(b => b.classList.remove("active"));
+     $$(".nav-btn").forEach(b => b.classList.remove("active"));
     $$(".nav-btn").filter(b => b.dataset && b.dataset.target === id).forEach(b => b.classList.add("active"));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // --- UI helpers ---
+ 
   function showError(id, msg) {
     const el = $(id);
     if (el) { el.textContent = msg; el.classList.remove("hidden"); }
@@ -62,8 +60,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     ["loginError","signupError"].forEach(id => $(id) && $(id).classList.add("hidden"));
   }
 
-  // --- Header auth refresh ---
-  function refreshHeaderAuth() {
+    function refreshHeaderAuth() {
     const loginNav = $("loginNav"), signupNav = $("signupNav"),
           avatarNav = $("avatarNav"), logoutBtn = $("logoutBtn"),
           avatarBubble = $("avatarBubble");
@@ -82,7 +79,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     }
   }
 
-  // --- Profile load/save ---
+  
   async function loadProfileDB() {
     try {
       const res = await fetch(`${API_BASE}/api/profile`, { headers: authHeaders() });
@@ -101,9 +98,9 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     }
   }
 
-  // --- Quiz state & functions ---
-  let currentQuiz = [], currentQuestion = 0, score = 0, incorrect = 0, timer = null, timeLeft = 30, currentSubject = "";
+    let currentQuiz = [], currentQuestion = 0, score = 0, incorrect = 0, timer = null, timeLeft = 30, currentSubject = "";
 
+  
   async function startQuiz(subject) {
     currentSubject = subject || "General";
     try {
@@ -211,7 +208,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     show("leaderboard");
   }
 
-  // --- Leaderboard ---
+  
   async function loadLeaderboard() {
     try {
       const res = await fetch(`${API_BASE}/api/leaderboard`);
@@ -230,34 +227,34 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     } catch (err) { console.error("loadLeaderboard:", err); }
   }
 
-  // --- DOM ready wiring ---
+  
   document.addEventListener("DOMContentLoaded", () => {
-    // starfield handled elsewhere if present
+    
 
-    // nav buttons
+     nav buttons
     $("logoBtn")?.addEventListener("click", () => show("home"));
     $$(".toFeatures").forEach(b => b.addEventListener("click", () => show("features")));
     $$(".nav-btn").forEach(b => { if (b.dataset && b.dataset.target) b.addEventListener("click", () => show(b.dataset.target)); });
 
-    // explicit login/signup nav (fix)
+   explicit login/signup nav (fix)
     $("loginNav")?.addEventListener("click", () => show("loginPage"));
     $("signupNav")?.addEventListener("click", () => show("signupPage"));
     $("goToSignup")?.addEventListener("click", () => show("signupPage"));
     $("backToLogin")?.addEventListener("click", () => show("loginPage"));
 
-    // CTA
+     CTA
     $("startCTA")?.addEventListener("click", () => { if (isLoggedIn()) show("subjectChooser"); else show("loginPage"); });
 
-    // footer / modal
+     footer / modal
     $("openPrivacy")?.addEventListener("click", (e) => { e.preventDefault(); $("privacyModal") && ($("privacyModal").style.display = "flex"); });
     $("closePrivacy")?.addEventListener("click", () => { $("privacyModal") && ($("privacyModal").style.display = "none"); });
     $("openRights")?.addEventListener("click", (e) => { e.preventDefault(); show("rights"); });
 
-    // avatar/profile nav
+     avatar/profile nav
     $("avatarNav")?.addEventListener("click", () => { if (isLoggedIn()) loadProfileDB(); show("profile"); });
     $("logoutBtn")?.addEventListener("click", () => { clearToken(); refreshHeaderAuth(); show("home"); });
 
-    // login form
+     login form
     const loginForm = $("loginForm");
     if (loginForm) loginForm.addEventListener("submit", async (ev) => {
       ev.preventDefault(); hideErrors();
@@ -276,7 +273,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
         if (!data.token) return showError("loginError", "No token returned");
         setToken(data.token);
         refreshHeaderAuth();
-        // paint actual username avatar if available
+         paint actual username avatar if available
         paintAvatarEl($("avatarBubble"), data.username || username);
         await loadProfileDB();
         show("subjectChooser");
@@ -286,7 +283,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
       }
     });
 
-    // signup form
+     signup form
     const signupForm = $("signupForm");
     if (signupForm) signupForm.addEventListener("submit", async (ev) => {
       ev.preventDefault(); hideErrors();
@@ -312,7 +309,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
       }
     });
 
-    // profile save
+     profile save
     $("profileForm")?.addEventListener("submit", async (ev) => {
       ev.preventDefault();
       const payload = {
@@ -336,7 +333,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
       }
     });
 
-    // subject cards
+     subject cards
     $$(".subject-card").forEach(card => {
       card.addEventListener("click", () => {
         const subject = card.dataset.subject || card.textContent.trim();
@@ -345,7 +342,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
       });
     });
 
-    // next button
+     next button
     $("nextBtn")?.addEventListener("click", () => {
       currentQuestion++;
       if (currentQuestion < currentQuiz.length) {
@@ -356,7 +353,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
       }
     });
 
-    // UI initial
+    UI initial
     $("yr") && ($("yr").textContent = new Date().getFullYear());
     $("yr2") && ($("yr2").textContent = new Date().getFullYear());
     $("logoImg") && ($("logoImg").src = "assets/logo.jpg");
@@ -366,7 +363,8 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     loadLeaderboard();
   });
 
-})(); // IIFE end
+})();  IIFE end
+
 
 
 
