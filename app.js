@@ -1,6 +1,6 @@
 // app.js - Final corrected BrainBuzz frontend
 // ===========================================
-const API_BASE = "https://brainbuzz-mp-1.onrender.com"
+const API_BASE = "https://brainbuzz-mp-backend.onrender.com"
 
 (function () {
   // --- Auth token helpers ---
