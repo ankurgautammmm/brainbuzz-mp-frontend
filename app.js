@@ -13,7 +13,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
   const $ = id => document.getElementById(id);
   const $$ = sel => Array.from(document.querySelectorAll(sel));
 
-   --- Avatar helpers ---
+   
   function hashStr(s = "guest") {
     let h = 0;
     for (let i = 0; i < s.length; i++) h = ((h << 5) - h) + s.charCodeAt(i);
@@ -364,6 +364,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
   });
 
 })();  IIFE end
+
 
 
 
