@@ -236,7 +236,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
     $$(".toFeatures").forEach(b => b.addEventListener("click", () => show("features")));
     $$(".nav-btn").forEach(b => { if (b.dataset && b.dataset.target) b.addEventListener("click", () => show(b.dataset.target)); });
 
-   explicit login/signup nav (fix)
+  
     $("loginNav")?.addEventListener("click", () => show("loginPage"));
     $("signupNav")?.addEventListener("click", () => show("signupPage"));
     $("goToSignup")?.addEventListener("click", () => show("signupPage"));
@@ -273,7 +273,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
         if (!data.token) return showError("loginError", "No token returned");
         setToken(data.token);
         refreshHeaderAuth();
-         paint actual username avatar if available
+         
         paintAvatarEl($("avatarBubble"), data.username || username);
         await loadProfileDB();
         show("subjectChooser");
@@ -364,6 +364,7 @@ const API_BASE = "https://brainbuzz-mp-backend.onrender.com";
   });
 
 })();  IIFE end
+
 
 
 
